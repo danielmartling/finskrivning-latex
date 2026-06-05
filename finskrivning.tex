@@ -1,0 +1,121 @@
+% Source - https://tex.stackexchange.com/a/140580
+% Posted by Tobi, modified by community. See post 'Timeline' for change history
+% Retrieved 2026-06-05, License - CC BY-SA 3.0
+
+\documentclass[12pt]{article}
+
+% necessary packages
+\usepackage{tikz}
+
+\newcommand*{\xdash}[1][3em]{\rule[0.5ex]{#1}{0.55pt}}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[a4paper, margin=1in]{geometry}
+
+% set the font
+%\usepackage{fontspec}
+%\setmainfont{Zapfino}
+
+% increase baseline skip
+\usepackage{setspace}
+\setstretch{1.5}
+
+% define height of lowercase letters
+\newcommand{\lowercaseheight}{1ex}
+% define height of uppercase letters
+\newcommand{\uppercaseheight}{2ex}
+% define depth of descenders
+\newcommand{\descenderdepth}{-0.5ex}
+    % you may add more values here and then use them in the {tikzpicture}
+    % to add more line to your grid
+
+
+% package to have a "every line" hook
+\usepackage{lineno}
+
+\newenvironment{drillsheet}{%
+    % let the "line numbers" start directly at the text
+    \setlength\linenumbersep{0pt}%
+    % let the "line numbers" be the grid
+    \renewcommand{\thelinenumber}{%
+        \begin{tikzpicture}[overlay]
+                % baseline
+                \draw [black!25] ((0,0) -- ++(\textwidth,0);
+                % lowercase height
+                \draw [ultra thin,black!25] ((0,\lowercaseheight) -- ++(\textwidth,0);
+                % uppercase height
+                \draw [black!25] (0,\uppercaseheight) -- ++(\textwidth,0);
+                % descender depth
+                \draw [ultra thin,black!25] (0,\descenderdepth) -- ++(\textwidth,0);
+        \end{tikzpicture}%
+    }%
+    % the font and color of the numbers must be set explicitly
+    \renewcommand\linenumberfont{\normalfont\color{black}}
+    % start "line numbering", i.e. the grid
+    \begin{linenumbers}%
+        % set text color to gray
+        %\color{black!25}%
+}{
+    % end "numbering", i.e. the grid
+    \end{linenumbers}%
+}
+
+\newenvironment{fakedisplaymath}{%
+   \begin{center}%
+   $\displaystyle
+}{%
+   $%
+   \end{center}%
+}
+
+\begin{document}
+\section*{Grekiska alfabetet}
+\Large
+\begin{drillsheet}
+    \noindent 
+    alfa $\alpha$ \\ 
+    beta $\beta$ \\ 
+    Gamma $\Gamma$ \\ gamma $\gamma$ \\ 
+    Delta $\Delta$ \\ delta $\delta$ \\
+    epsilon $\varepsilon \epsilon$ \\ 
+    zeta $\zeta$ \\ 
+    eta $\eta$ \\ 
+    Theta $\Theta$ \\ theta $\theta$ \\
+    iota $\iota$ \\ 
+    kappa $\kappa$ \\ 
+    Lambda $\Lambda$ \\ lambda $\lambda$ \\ 
+    mu $\mu$ \\ 
+    nu $\nu$ \\
+    Xi $\Xi$ \\ xi $\xi$ \\ 
+    Pi $\Pi$ \\ pi $\pi$ \\
+    rho $\rho$ \\ 
+    Sigma $\Sigma$ \\ sigma $\sigma$ \\ 
+    tau $\tau$ \\
+    upsilon $\upsilon$ \\
+    Fi $\Phi$ \\ fi $\phi \varphi$ \\ 
+    chi $\chi$ \\ 
+    Psi $\Psi$ \\ psi $\psi$ \\ 
+    Omega $\Omega$ \\ omega $\omega$
+\end{drillsheet}
+
+\newpage
+
+\section*{Bonussymboler}
+
+\begin{drillsheet}
+    \noindent 
+    Dolk $\dagger$ \\ 
+    Dubbeldolk $\ddagger$ \\ 
+	Oändlighet $\infty$ \\
+	Plancks reducerade konstant $\hbar$ \\
+	$\mathbb{N}$ \\
+	$\mathbb{Z}$ \\
+	$\mathbb{Q}$ \\
+	$\mathbb{R}$ \\
+	$\mathbb{C}$ \\
+    
+\end{drillsheet}
+\end{document}
