@@ -1,6 +1,6 @@
 # finskrivning-latex
 
-Latex-kod som genererar finskrivningsstenciler. [finskrivning.pdf](Klicka här!)
+Latex-kod som genererar finskrivningsstenciler. [Klicka här!](finskrivning.pdf)
 
 Bygger på följande kod: https://tex.stackexchange.com/a/140580
 
